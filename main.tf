@@ -3,11 +3,11 @@
 # subject to your agreement with Google.
 
 data "template_file" "startup_script" {
-  template = file("../files/startup.sh")
+  template = file("./files/startup.sh")
 }
 
 module "mig_template" {
-  source = "../modules/mig_template"
+  source = "./modules/mig_template"
 
   project_id = var.project_id
   vpc        = "default"
@@ -35,7 +35,7 @@ module "mig_template" {
 
 module "mig" {
   for_each = var.regions
-  source   = "../modules/mig"
+  source   = "./modules/mig"
 
   project_id = var.project_id
   vpc        = "default"
@@ -53,7 +53,7 @@ module "mig" {
 }
 
 module "global_load_balancer" {
-  source = "../modules/https_load_balancer"
+  source = "./modules/https_load_balancer"
 
   project_id = var.project_id
 
@@ -62,7 +62,7 @@ module "global_load_balancer" {
 }
 
 module "bucket" {
-  source = "../modules/cloud_storage"
+  source = "./modules/cloud_storage"
 
   project_id = var.project_id
 
@@ -74,7 +74,7 @@ module "bucket" {
 }
 
 module "postgresql" {
-  source = "../modules/postgresql"
+  source = "./modules/postgresql"
 
   project_id = var.project_id
 

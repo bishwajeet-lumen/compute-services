@@ -1,4 +1,4 @@
-# Instance template, MIG and LBs
+# VM COTS Pattern
 
 This folder contains an example to create an instance template, two managed instance group with an autoscaler, one regional tcp lb and one global http lb
 
